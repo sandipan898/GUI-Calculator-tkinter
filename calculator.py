@@ -6,7 +6,7 @@ root = tk.Tk()
 root.title("Simple Calculator")
 
 e = tk.Entry(root, width = 35, borderwidth = 5)
-e.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 10)
+e.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 15)
 
 def button_show(number):
     current = e.get()
@@ -83,7 +83,7 @@ button_equal = tk.Button(root, text = "=", padx = 86, pady = 20, command = butto
 button_sub = tk.Button(root, text = "-", padx = 40, pady = 20, command = button_subtraction)
 button_mul = tk.Button(root, text = "*", padx = 40, pady = 20, command = button_multiplication)
 button_div = tk.Button(root, text = "/", padx = 40, pady = 20, command = button_division)
-
+button_quit = tk.Button(root, text = "Exit", padx = 126, pady = 15, command = root.quit)
 
 button_1.grid(row = 1, column = 0)
 button_2.grid(row = 1, column = 1)
@@ -103,5 +103,6 @@ button_equal.grid(row =5, column = 1, columnspan=2)
 button_sub.grid(row = 6, column = 0)
 button_mul.grid(row = 6, column = 1)
 button_div.grid(row = 6, column = 2)
-
+button_quit.grid(row = 7, column = 0, columnspan = 3)
 root.mainloop()
+
