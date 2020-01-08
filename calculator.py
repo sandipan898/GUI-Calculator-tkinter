@@ -1,11 +1,13 @@
-#Simple Calculator
 import tkinter as tk
 
 root = tk.Tk()
 
 root.title("Simple Calculator")
 
-e = tk.Entry(root, width = 35, borderwidth = 5)
+frame = tk.Frame(root, bg = "gray", padx = 10, pady = 10)
+frame.pack()
+
+e = tk.Entry(frame, width = 35, borderwidth = 5)
 e.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 15)
 
 def button_show(number):
@@ -65,25 +67,25 @@ def button_equal():
 
 
 
-button_1 = tk.Button(root, text = "1", padx = 40, pady = 20, command = lambda:button_show(1))
-button_2 = tk.Button(root, text = "2", padx = 40, pady = 20, command = lambda:button_show(2))
-button_3 = tk.Button(root, text = "3", padx = 40, pady = 20, command = lambda:button_show(3))
-button_4 = tk.Button(root, text = "4", padx = 40, pady = 20, command = lambda:button_show(4))
-button_5 = tk.Button(root, text = "5", padx = 40, pady = 20, command = lambda:button_show(5))
-button_6 = tk.Button(root, text = "6", padx = 40, pady = 20, command = lambda:button_show(6))
-button_7 = tk.Button(root, text = "7", padx = 40, pady = 20, command = lambda:button_show(7))
-button_8 = tk.Button(root, text = "8", padx = 40, pady = 20, command = lambda:button_show(8))
-button_9 = tk.Button(root, text = "9", padx = 40, pady = 20, command = lambda:button_show(9))
-button_0 = tk.Button(root, text = "0", padx = 40, pady = 20, command = lambda:button_show(0))
+button_1 = tk.Button(frame, text = "1", padx = 40, pady = 20, bd = 2, command = lambda:button_show(1))
+button_2 = tk.Button(frame, text = "2", padx = 40, pady = 20, bd = 2, command = lambda:button_show(2))
+button_3 = tk.Button(frame, text = "3", padx = 40, pady = 20, bd = 2, command = lambda:button_show(3))
+button_4 = tk.Button(frame, text = "4", padx = 40, pady = 20, bd = 2, command = lambda:button_show(4))
+button_5 = tk.Button(frame, text = "5", padx = 40, pady = 20, bd = 2, command = lambda:button_show(5))
+button_6 = tk.Button(frame, text = "6", padx = 40, pady = 20, bd = 2, command = lambda:button_show(6))
+button_7 = tk.Button(frame, text = "7", padx = 40, pady = 20, bd = 2, command = lambda:button_show(7))
+button_8 = tk.Button(frame, text = "8", padx = 40, pady = 20, bd = 2, command = lambda:button_show(8))
+button_9 = tk.Button(frame, text = "9", padx = 40, pady = 20, bd = 2, command = lambda:button_show(9))
+button_0 = tk.Button(frame, text = "0", padx = 40, pady = 20, bd = 2, command = lambda:button_show(0))
 
-button_add = tk.Button(root, text = "+", padx = 39, pady = 20, command = button_add)
-button_clear = tk.Button(root, text = "Clear", padx = 77, pady = 20, command = button_clear)
-button_equal = tk.Button(root, text = "=", padx = 86, pady = 20, command = button_equal)
+button_add = tk.Button(frame, text = "+", padx = 40, pady = 20, command = button_add, bd = 2)
+button_clear = tk.Button(frame, text = "Clear", padx = 76, pady = 20, command = button_clear, bd = 2)
+button_equal = tk.Button(frame, text = "=", padx = 87, pady = 20, command = button_equal, bd = 2)
 
-button_sub = tk.Button(root, text = "-", padx = 40, pady = 20, command = button_subtraction)
-button_mul = tk.Button(root, text = "*", padx = 40, pady = 20, command = button_multiplication)
-button_div = tk.Button(root, text = "/", padx = 40, pady = 20, command = button_division)
-button_quit = tk.Button(root, text = "Exit", padx = 126, pady = 15, command = root.quit)
+button_sub = tk.Button(frame, text = "-", padx = 41, pady = 20, bd = 2, command = button_subtraction)
+button_mul = tk.Button(frame, text = "*", padx = 41, pady = 20, bd = 2, command = button_multiplication)
+button_div = tk.Button(frame, text = "/", padx = 41, pady = 20, bd = 2, command = button_division)
+button_quit = tk.Button(frame, text = "Exit", padx = 128, pady = 12, bd = 2, command = frame.quit)
 
 button_1.grid(row = 1, column = 0)
 button_2.grid(row = 1, column = 1)
@@ -104,5 +106,4 @@ button_sub.grid(row = 6, column = 0)
 button_mul.grid(row = 6, column = 1)
 button_div.grid(row = 6, column = 2)
 button_quit.grid(row = 7, column = 0, columnspan = 3)
-root.mainloop()
-
+frame.mainloop()
