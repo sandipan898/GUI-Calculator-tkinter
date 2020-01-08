@@ -5,10 +5,10 @@ root = tk.Tk()
 root.title("Simple Calculator")
 
 frame = tk.Frame(root, bg = "gray", padx = 10, pady = 10)
-frame.pack()
+frame.pack(padx = 5, pady = 5)
 
-e = tk.Entry(frame, width = 35, borderwidth = 5)
-e.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 15)
+e = tk.Entry(frame, width = 35, borderwidth = 7)
+e.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 20)
 
 def button_show(number):
     current = e.get()
