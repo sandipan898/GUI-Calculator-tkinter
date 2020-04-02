@@ -3,11 +3,11 @@ from tkinter import messagebox
 import math
 
 e = None
+e2 = None
 sign = None
 f_num = None
 frame = None
 num = None
-
 
 def sin():
     global sign
@@ -15,6 +15,8 @@ def sin():
     sign = "sin"
     num = float(e.get())
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "sin(" + str(num) + ")")
     e.insert(0, "sin(" + str(num) + ")")
 
 
@@ -24,6 +26,8 @@ def cos():
     sign = "cos"
     num = float(e.get())
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "cos(" + str(num) + ")")
     e.insert(0, "cos(" + str(num) + ")")
 
 def tan():
@@ -31,41 +35,19 @@ def tan():
     global num
     sign = "tan"
     num = float(e.get())
+    e2.delete(0, len(e2.get()))
     e.delete(0,len(e.get()))
+    e2.insert(0, "tan(" + str(num) + ")")
     e.insert(0, "tan(" + str(num) + ")")
 
-"""
-def cot():
-    global sign
-    global cot_no
-    sign = "cot"
-    cot_no = float(e.get())
-    e.delete(0,len(e.get()))
-    e.insert(0, "cot(" + str(cot_no) + ")")
-
-def sec():
-    global sign
-    global sec_no
-    sign = "sec"
-    sec_no = float(e.get())
-    e.delete(0,len(e.get()))
-    e.insert(0, "sec(" + str(sec_no) + ")")
-    
-def cosec():
-    global sign
-    global cosec_no
-    sign = "cosec"
-    cosec_no = float(e.get())
-    e.delete(0,len(e.get()))
-    e.insert(0, "cosec(" + str(cosec_no) + ")")
-"""
-    
 def tan_inv():
     global sign
     global num
     sign = "tan_inv"
     num = float(e.get())
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "tan^-1(" + str(num) + ")")
     e.insert(0, "tan^-1(" + str(num) + ")")
     
 def cos_inv():
@@ -74,6 +56,8 @@ def cos_inv():
     sign = "cos_inv"
     num = float(e.get())
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "cos^-1(" + str(num) + ")")
     e.insert(0, "cos^-1(" + str(num) + ")")
     
 def sin_inv():
@@ -82,6 +66,8 @@ def sin_inv():
     sign = "sin_inv"
     num = float(e.get())
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "sin^-1(" + str(num) + ")")
     e.insert(0, "sin^-1(" + str(num) + ")")
     
 def exp():
@@ -90,6 +76,8 @@ def exp():
     global sign
     sign = "exp"
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "E" + num)
     e.insert(0, "E" + num)
     
 def fact():
@@ -97,7 +85,7 @@ def fact():
     global sign
     num = int(e.get())
     sign = "fact"
-    # e.delete(0,len(e.get()))
+    e2.insert(len(e.get()), "!")
     e.insert(len(e.get()), "!")
     
 def sqrt():
@@ -105,6 +93,8 @@ def sqrt():
     num = float(e.get())
     global sign
     sign = "sqrt"
+    e2.delete(0, len(e2.get()))
+    e2.insert(0, "sqrt(" + str(num) + ")")
     e.delete(0, len(e.get()))
     e.insert(0, "sqrt(" + str(num) + ")")
     
@@ -113,6 +103,8 @@ def cube():
     num = float(e.get())
     global sign
     sign = "cube"
+    e2.delete(0, len(e2.get()))
+    e2.insert(len(e.get()), str(num) + "^3")
     e.delete(0,len(e.get()))
     e.insert(len(e.get()), "^3")
     
@@ -121,127 +113,188 @@ def n_pow():
     f_num = e.get()
     global sign
     sign = "n_pow"
+    e2.delete(0, len(e2.get()))
     e.delete(0,len(e.get()))
-    # e.insert(len(e.get()), "^")
+    e2.insert(0, str(f_num) + " ^ ")
     
 def inv():
     global num 
     global sign
     sign = "inv"
     num = float(e.get())
-    # e.delete(0,len(e.get()))
+    e2.insert(len(e2.get()), "^(-1)")
     e.insert(len(e.get()), "^(-1)")
 
 def rem():
     global f_num
+    e2.delete(0, len(e2.get()))
     f_num = float(e.get())
     global sign
     sign = "rem"
-    # rem_no = e.get()
+    e2.insert(0, str(f_num) + " % ")
     e.delete(0,len(e.get()))
-    # e.insert(len(e.get()), "%")
 
 
 def show(number):
     current = e.get()
+    current1 = e2.get()
+    e2.delete(0, len(current1))
     e.delete(0,len(current))
     e.insert(0,str(current) + str(number))
+    e2.insert(0,str(current1) + str(number))
 
 
 def addition():
     first_num = e.get()
+    e2.delete(0, len(e2.get()))
     global sign
     sign = "addition"
     global f_num
     f_num = float(first_num)
+    e2.insert(0, str(f_num) + " + ")
     e.delete(0,len(e.get()))
 
 def subtraction():
     first_num = e.get()
+    e2.delete(0, len(e2.get()))
     global sign
     sign= "subtraction"
     global f_num
     f_num = float(first_num)
+    e2.insert(0, str(f_num) + " - ")
     e.delete(0,len(e.get()))
 
 def multiplication():
     first_num = e.get()
+    e2.delete(0, len(e2.get()))
     global sign
     sign = "multiplication"
     global f_num
     f_num = float(first_num)
+    e2.insert(0, str(f_num) + " * ")
     e.delete(0,len(e.get()))
 
 def division():
     first_num = e.get()
+    e2.delete(0, len(e2.get()))
     global sign
     sign = "division"
     global f_num
     f_num = float(first_num)
+    e2.insert(0, str(f_num) + " / ")
     e.delete(0, len(e.get()))
 
 def equal():
     try:
         second_num = e.get()
         e.delete(0, len(second_num))
-
+        # e2.insert(len(e2.get()), second_num)
+        
         if sign == "addition":
-            e.insert(0, f_num + float(second_num))
-
+            result = f_num + float(second_num)
+            e.insert(0, result)
+            e2.insert(len(e2.get()), " = " + str(result))
+            
         if sign == "subtraction":
-            e.insert(0, f_num - float(second_num))
+            result = f_num - float(second_num)
+            e.insert(0, result)
+            e2.insert(len(e2.get()), " = " + str(result))
 
         if sign == "multiplication":
-            e.insert(0, f_num * float(second_num))
+            result = f_num * float(second_num)
+            e.insert(0, result)
+            e2.insert(len(e2.get()), " = " + str(result))
 
         if sign == "division":
             if int(second_num) == 0:
                 e.insert(0, "NaN")
+                e2.insert(len(e2.get()), " = NaN")
             else:
-                e.insert(0, f_num / int(second_num))
+                result = f_num / int(second_num)
+                e.insert(0, result)
+                e2.insert(len(e2.get()), " = " + str(result))
 
         if sign == "sin":
-            print(math.sin(num))
-            e.insert(0, math.sin(math.radians(num)))
+            # print(math.sin(num))
+            result = math.sin(math.radians(num))
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "sin(" + str(num) + ") = " + str(result))
             
         if sign == "cos":
-            e.insert(0, math.cos(math.radians(num)))
+            result = math.cos(math.radians(num))
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "cos(" + str(num) + ") = " + str(result))
             
         if sign == "tan":
-            e.insert(0, math.tan(math.radians(num)))
+            result = math.tan(math.radians(num))
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "tan(" + str(num) + ") = " + str(result))
             
         if sign == "n_pow":
-            e.insert(0, float(f_num) ** int(second_num))
+            result = float(f_num) ** int(second_num)
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, str(f_num) + " ^ " + str(second_num) + " = " + str(result))
 
         if sign == "exp":
-            e.insert(0, math.exp(num))
+            result = math.exp(num)
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "E" + num + " = " + str(result))
 
         if sign == "fact":
-            e.insert(0, math.factorial(num))
+            result = math.factorial(num)
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, str(num) + "! = " + str(result))
 
         if sign == "sqrt":
-            e.insert(0, math.sqrt(num))
+            result = math.sqrt(num)
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "sqrt(" + str(num) + ") = " + str(result))
 
         if sign == "inv":
-            e.insert(0, (1/num))
+            result  = 1/num
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, str(num) + "^(-1) = " + str(result))
 
         if sign == "rem":
-            e.insert(0, f_num % int(second_num))
+            result = f_num % int(second_num)
+            e.insert(0, result)
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, str(f_num) + " % " + str(second_num) + " = " + str(result))
             
         if sign == "sin_inv":
-            e.insert(0, str(math.degrees(math.asin(num))) + " (degree)")
+            result = math.degrees(math.asin(num))
+            e.insert(0, str(result) + " (degree)")
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "sin^-1(" + str(num) + ") = " + str(result))
 
         if sign == "cos_inv":
-            e.insert(0, str(math.degrees(math.acos(num))) + " (degree)")
+            result = math.degrees(math.acos(num))
+            e.insert(0, str(result) + " (degree)")
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "cos^-1(" + str(num) + ") = " + str(result))
         
         if sign == "tan_inv":
-            e.insert(0, str(math.degrees(math.atan(num))) + " (degree)")
+            result  = math.degrees(math.atan(num))
+            e.insert(0, str(result) + " (degree)")
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, "tan^-1(" + str(num) + ") = " + str(result))
         
         if sign == "cube":
-            e.insert(0, str(num**3))
+            result = num**3
+            e.insert(0, str(result))
+            e2.delete(0, len(e2.get()))
+            e2.insert(0, str(num) + "^3 = " + str(result))
+
     except Exception as ValueError:
         messagebox.showerror("Value Error", "Math Error")
-
 
 def delete():
     current = e.get()
@@ -250,6 +303,7 @@ def delete():
 
 def clear():
     e.delete(0,len(e.get()))
+    e2.delete(0, len(e2.get()))
 
             
 def create_frame(mode):
@@ -265,8 +319,14 @@ def create_frame(mode):
     frame.grid(row=1, column=0, columnspan=3, padx = 10, pady = 10)
         
     global e
+    global e2
+    e2 = tk.Entry(frame, font = ("Helvetica", 9), width = 40, borderwidth = 2)
+    e2.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 10, ipady = 3)
+
     e = tk.Entry(frame, font = ("Helvetica", 9, "bold"), width = 40, borderwidth = 5)
-    e.grid(row = 0, column = 0, columnspan = 3, padx = 10, pady = 10, ipady = 8)
+    e.grid(row = 1, column = 0, columnspan = 3, padx = 10, pady = 10, ipady = 8)
+    
+    e.focus()
 
     if mode == 'n':
         
@@ -292,27 +352,27 @@ def create_frame(mode):
         button_mul = tk.Button(frame, background = "light gray", font = ("Helvetica", 9, "bold"), text = "*", padx = 37, pady = 5, command = multiplication)
         button_div = tk.Button(frame, background = "light gray", font = ("Helvetica", 9, "bold"), text = "/", padx = 37, pady = 5, command = division)
 
-        button_1.grid(row = 1, column = 0, pady = 5)
-        button_2.grid(row = 1, column = 1, pady = 5)
-        button_3.grid(row = 1, column = 2, pady = 5)
-        button_4.grid(row = 2, column = 0, pady = 5)
-        button_5.grid(row = 2, column = 1, pady = 5)
-        button_6.grid(row = 2, column = 2, pady = 5)
-        button_7.grid(row = 3, column = 0, pady = 5)
-        button_8.grid(row = 3, column = 1, pady = 5)
-        button_9.grid(row = 3, column = 2, pady = 5)
-        button_0.grid(row = 4, column = 0, pady = 5)
+        button_1.grid(row = 2, column = 0, pady = 5)
+        button_2.grid(row = 2, column = 1, pady = 5)
+        button_3.grid(row = 2, column = 2, pady = 5)
+        button_4.grid(row = 3, column = 0, pady = 5)
+        button_5.grid(row = 3, column = 1, pady = 5)
+        button_6.grid(row = 3, column = 2, pady = 5)
+        button_7.grid(row = 4, column = 0, pady = 5)
+        button_8.grid(row = 4, column = 1, pady = 5)
+        button_9.grid(row = 4, column = 2, pady = 5)
+        button_0.grid(row = 5, column = 0, pady = 5)
 
-        button_sqrt.grid(row = 5, column = 0, pady = 5)
-        button_clear.grid(row =5, column = 1, columnspan=2, pady = 5)
-        button_equal.grid(row =7, column = 1, columnspan=2, pady = 5)
-        button_del.grid(row = 4, column = 2)
-        button_dot.grid(row = 4, column = 1)
+        button_sqrt.grid(row = 6, column = 0, pady = 5)
+        button_clear.grid(row =6, column = 1, columnspan=2, pady = 5)
+        button_equal.grid(row =8, column = 1, columnspan=2, pady = 5)
+        button_del.grid(row = 5, column = 2)
+        button_dot.grid(row = 5, column = 1)
 
-        button_add.grid(row = 7, column = 0)
-        button_sub.grid(row = 6, column = 0, pady = 5)
-        button_mul.grid(row = 6, column = 1, pady = 5)
-        button_div.grid(row = 6, column = 2, pady = 5)
+        button_add.grid(row = 8, column = 0)
+        button_sub.grid(row = 7, column = 0, pady = 5)
+        button_mul.grid(row = 7, column = 1, pady = 5)
+        button_div.grid(row = 7, column = 2, pady = 5)
 
     else:
 
@@ -351,40 +411,40 @@ def create_frame(mode):
         button_mul = tk.Button(frame, background = "light gray", font = ("Helvetica", 9, "bold"), text = "*", padx = 37, pady = 5, command = multiplication)
         button_div = tk.Button(frame, background = "light gray", font = ("Helvetica", 9, "bold"),text = "/", padx = 37, pady = 5, command = division)
 
-        button_1.grid(row = 6, column = 0, pady = 5)
-        button_2.grid(row = 6, column = 1, pady = 5)
-        button_3.grid(row = 6, column = 2, pady = 5)
-        button_4.grid(row = 7, column = 0, pady = 5)
-        button_5.grid(row = 7, column = 1, pady = 5)
-        button_6.grid(row = 7, column = 2, pady = 5)
-        button_7.grid(row = 8, column = 0, pady = 5)
-        button_8.grid(row = 8, column = 1, pady = 5)
-        button_9.grid(row = 8, column = 2, pady = 5)
-        button_0.grid(row = 9, column = 0, pady = 5)
+        button_1.grid(row = 7, column = 0, pady = 5)
+        button_2.grid(row = 7, column = 1, pady = 5)
+        button_3.grid(row = 7, column = 2, pady = 5)
+        button_4.grid(row = 8, column = 0, pady = 5)
+        button_5.grid(row = 8, column = 1, pady = 5)
+        button_6.grid(row = 8, column = 2, pady = 5)
+        button_7.grid(row = 9, column = 0, pady = 5)
+        button_8.grid(row = 9, column = 1, pady = 5)
+        button_9.grid(row = 9, column = 2, pady = 5)
+        button_0.grid(row = 10, column = 0, pady = 5)
 
-        button_add.grid(row = 10, column = 0, pady = 5)
-        button_clear.grid(row = 9, column = 1, pady = 5)
-        button_dot.grid(row = 9, column = 2, pady = 5)
-        button_equal.grid(row =10, column = 1, columnspan=2, pady = 5)
+        button_add.grid(row = 11, column = 0, pady = 5)
+        button_clear.grid(row = 10, column = 1, pady = 5)
+        button_dot.grid(row = 10, column = 2, pady = 5)
+        button_equal.grid(row =11, column = 1, columnspan=2, pady = 5)
 
-        button_sub.grid(row = 11, column = 0, pady = 5)
-        button_mul.grid(row = 11, column = 1, pady = 5)
-        button_div.grid(row = 11, column = 2, pady = 5)
+        button_sub.grid(row = 12, column = 0, pady = 5)
+        button_mul.grid(row = 12, column = 1, pady = 5)
+        button_div.grid(row = 12, column = 2, pady = 5)
 
-        button_sin.grid(row = 1, column = 0, pady = 5)
-        button_cos.grid(row = 1, column = 1, pady = 5)
-        button_tan.grid(row = 1, column = 2, pady = 5)
-        button_cot.grid(row = 2, column = 0, pady = 5)
-        button_cosec.grid(row = 2, column = 1, pady = 5)
-        button_sec.grid(row = 2, column = 2, pady = 5)
-        button_sqrt.grid(row = 3, column = 0, pady = 5)
-        button_fact.grid(row = 3, column = 1, pady = 5)
-        button_inv.grid(row = 3, column = 2, pady = 5)
-        button_rem.grid(row = 4, column = 0, pady = 5)
-        button_n_pow.grid(row = 4, column = 1, pady = 5)
-        button_exp.grid(row = 4, column = 2, pady = 5)
-        button_cube.grid(row=5, column=0, pady = 5)
-        button_e.grid(row = 5, column = 1, columnspan = 2, pady = 5)
+        button_sin.grid(row = 2, column = 0, pady = 5)
+        button_cos.grid(row = 2, column = 1, pady = 5)
+        button_tan.grid(row = 2, column = 2, pady = 5)
+        button_cot.grid(row = 3, column = 0, pady = 5)
+        button_cosec.grid(row = 3, column = 1, pady = 5)
+        button_sec.grid(row = 3, column = 2, pady = 5)
+        button_sqrt.grid(row = 4, column = 0, pady = 5)
+        button_fact.grid(row = 4, column = 1, pady = 5)
+        button_inv.grid(row = 4, column = 2, pady = 5)
+        button_rem.grid(row = 5, column = 0, pady = 5)
+        button_n_pow.grid(row = 5, column = 1, pady = 5)
+        button_exp.grid(row = 5, column = 2, pady = 5)
+        button_cube.grid(row=6, column=0, pady = 5)
+        button_e.grid(row = 6, column = 1, columnspan = 2, pady = 5)
 
 
 if __name__ == "__main__":
