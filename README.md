@@ -6,3 +6,9 @@ User can switch between the the two modes of the calculator
 ## Libraries used
 1. tkinter
 2. math
+
+## Simple mode
+![Simple mode image](gui_tk_calc_simple.png)
+
+## Scientific mode
+![Scientific mode image](gui_tk_calc_sci.png)
