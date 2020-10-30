@@ -17,9 +17,6 @@ It has two interfaces based on two different modes:  Simple and Scientific, that
 
 ## How to use:
 * Clone the repository
-* Install the dependencies executing the following command:
-            
-        pip install -r requirements.txt
 * Run the python file executing the following command:
 
         python calculator.py
