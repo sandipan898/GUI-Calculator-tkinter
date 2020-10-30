@@ -1,14 +1,23 @@
 # Calculator Project
-This a project to make a GUI calculator using python tkinter
-It has two interfaces: one for Scientific operations and one for simple operations.
-User can switch between the the two modes of the calculator
+A GUI based Multi-mode calculator application using python.
+It has two interfaces based on two different modes:  Simple and Scientific, that includes all the simple as and scientific calculation functionalities. User can switch between different modes.
 
-## Libraries used
-1. tkinter
-2. math
+## Tech Stack
+### Technologies used: 
+* GUI
+* complex math operations
+* programming
+
+### Programming language used:
+* Python
+
+### Modules used:
+* tkinter
+* math
 
 ## Simple mode
-![Simple mode image](gui_tk_calc_simple.png)
+![Simple mode image](public/gui_tk_calc_simple.png)
 
 ## Scientific mode
-![Scientific mode image](gui_tk_calc_sci.png)
+![Scientific mode image](public/gui_tk_calc_sci.png)
+
